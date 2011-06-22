@@ -16,3 +16,10 @@ Google documentation links:
 
 http://code.google.com/apis/analytics/docs/tracking/gaTrackingEcommerce.html
 http://code.google.com/apis/analytics/docs/gaJS/gaJSApiEcommerce.html
+
+
+TODO / Room for improvement:
+----------------------------
+
+ * Optionally allow recording actions: add to cart, remove, set quantity.
+ * Integrate analtyics reporting into CMS for an order. This way site owners an see additional info for the customer.
