@@ -123,14 +123,10 @@ JS;
 }
 
 
-class EcommerceGoogleAnaltyicsOrderDecorator extends DataObjectDecorator{
+class EcommerceGoogleAnaltyicsOrderDecorator extends DataExtension{
 	
-	function extraStatics(){
-		return array(
-			'db' => array(
-				'AnalyticsSubmitted' => 'Boolean'
-			)
-		);
-	}
+	private static $db = array(
+		'AnalyticsSubmitted' => 'Boolean'
+	);
 	
 }
