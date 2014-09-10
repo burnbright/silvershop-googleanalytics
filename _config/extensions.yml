@@ -1,0 +1,9 @@
+---
+Name: extensions
+---
+Order:
+  extensions:
+    - 'ShopGoogleAnalyticsOrder'
+Controller:
+  extensions:
+    - 'ShopGoogleAnalyticsController'
