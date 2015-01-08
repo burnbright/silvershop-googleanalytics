@@ -14,7 +14,7 @@ class ShopGoogleAnalyticsController extends Extension {
 	 * Add in global analytics code as appropriate
 	 */
 	public function onAfterInit() {
-		if ($this->GAWebProperyID()) {
+		if ($this->GAWebPropertyID()) {
 			// record page view if appropriate
 			if (!ShopGoogleAnalytics::config()->disable_pageviews) {
 				$this->addGASnippet('PageView');
@@ -63,7 +63,7 @@ class ShopGoogleAnalyticsController extends Extension {
 	/**
 	 * @return string
 	 */
-	public function GAWebProperyID() {
+	public function GAWebPropertyID() {
 		return ShopGoogleAnalytics::get_property_id();
 	}
 
