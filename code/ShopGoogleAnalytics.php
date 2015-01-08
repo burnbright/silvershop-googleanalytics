@@ -45,7 +45,10 @@ class ShopGoogleAnalytics extends Object
 	 * @return string
 	 */
 	public static function get_property_id() {
-		if (self::config()->disable_on_dev && !\Director::isLive()) return '';
+		if (self::config()->disable_on_dev && !\Director::isLive()){
+			return '';	
+		}
+
 		return self::config()->web_property_id;
 	}
 }

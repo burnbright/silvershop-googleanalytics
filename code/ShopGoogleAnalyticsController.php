@@ -6,10 +6,9 @@
  * @date 09.10.2014
  * @package shop_googleanalytics
  */
-class ShopGoogleAnalyticsController extends Extension
-{
-	protected $snippets = array();
+class ShopGoogleAnalyticsController extends Extension {
 
+	protected $snippets = array();
 
 	/**
 	 * Add in global analytics code as appropriate
@@ -73,7 +72,10 @@ class ShopGoogleAnalyticsController extends Extension
 	 * @return string
 	 */
 	public function GoogleAnalyticsJS() {
-		if (empty($this->snippets)) return '';
+		if (empty($this->snippets)){
+			return '';	
+		}
+
 		return "<script type=\"text/javascript\">\n" . implode("\n", $this->snippets) . "</script>\n";
 	}
 } 

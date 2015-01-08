@@ -1,11 +1,9 @@
-Shop Google Analytics Tracking
-==============================
+# Shop Google Analytics Tracking
 
-Setup
------
+## Setup
+
 Add the following to your yaml config:
-
-```
+```yaml
 ShopGoogleAnalytics:
   web_property_id: UA-XXXXXX-X
 ```
@@ -23,7 +21,7 @@ Some additional configuration options (all on the ShopGoogleAnalytics object):
 * tracking_code - allows finer grained control over the templates used to generate the javascript
 
 
-TODO / Room for improvement:
-----------------------------
+## TODO / Room for improvement:
+
  * Optionally allow recording actions: add to cart, remove, set quantity.
  * Integrate analtyics reporting into CMS for an order. This way site owners an see additional info for the customer.
