@@ -4,7 +4,7 @@ ga('require', 'ecommerce');
 	ga('ecommerce:addTransaction', {
 		'id':           '$JS_val(Reference)',
 		'affiliation':  '$Top.SiteConfig.JS_val(Title)',
-		'revenue':      '$Total.RAW'
+		'revenue':      '$Total.RAW',
 		'shipping':     '$GAShippingTotal',
 		'tax':          '$GATaxTotal',
 	});
