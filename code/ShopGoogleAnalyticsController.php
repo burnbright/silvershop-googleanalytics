@@ -45,7 +45,10 @@ class ShopGoogleAnalyticsController extends Extension {
 		$snippets = $cfg->tracking_code;
 
 		if (isset($snippets[$type]) && isset($snippets[$type][$name])) {
-			$js = $this->owner->renderWith($snippets[$type][$name], array('Order' => $order));
+			$js = $this->owner->renderWith($snippets[$type][$name], array(
+				'Order' => $order,
+				'GAWebPropertyID' => $this->GAWebProperyID(),
+			));
 		}
 
 		if (!empty($js)) {
