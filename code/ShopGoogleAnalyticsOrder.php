@@ -8,73 +8,75 @@
  */
 class ShopGoogleAnalyticsOrder extends DataExtension
 {
-	private static $db = array(
-		'AnalyticsSubmitted' => 'Boolean'
-	);
+    private static $db = array(
+        'AnalyticsSubmitted' => 'Boolean'
+    );
 
 
-	/**
-	 * @return bool
-	 */
-	public function IsConversion() {
-		$state = !$this->owner->IsCart();
+    /**
+     * @return bool
+     */
+    public function IsConversion()
+    {
+        $state = !$this->owner->IsCart();
 
-		// different systems may have some statuses that don't count as a conversion (quotation, etc)
-		$this->owner->extend('updateIsConversion', $state);
+        // different systems may have some statuses that don't count as a conversion (quotation, etc)
+        $this->owner->extend('updateIsConversion', $state);
 
-		return $state;
-	}
-
-
-	/**
-	 * This is a very rudimentary method but it should allow
-	 * for a variety of site configurations. If it's incorrect,
-	 * it's easy enough to override by decorating the Order class.
-	 * @return float
-	 */
-	public function GAShippingTotal() {
-		$total = false;
-		$this->owner->extend('overrideGAShippingTotal', $total);
-
-		if ($total === false) {
-			$total = 0;
-
-			foreach ($this->owner->Modifiers() as $mod) {
-				if (strpos($mod->ClassName, 'Shipping') !== false) {
-					$total += $mod->Amount();
-				}
-			}
-
-			$this->owner->extend('updateGAShippingTotal', $total);
-		}
-
-		return $total;
-	}
+        return $state;
+    }
 
 
-	/**
-	 * This is a very rudimentary method but it should allow
-	 * for a variety of site configurations. If it's incorrect,
-	 * it's easy enough to override by decorating the Order class.
-	 * @return float
-	 */
-	public function GATaxTotal() {
-		$total = false;
-		$this->owner->extend('overrideGATaxTotal', $total);
+    /**
+     * This is a very rudimentary method but it should allow
+     * for a variety of site configurations. If it's incorrect,
+     * it's easy enough to override by decorating the Order class.
+     * @return float
+     */
+    public function GAShippingTotal()
+    {
+        $total = false;
+        $this->owner->extend('overrideGAShippingTotal', $total);
 
-		if ($total === false) {
-			$total = 0;
+        if ($total === false) {
+            $total = 0;
 
-			foreach ($this->owner->Modifiers() as $mod) {
-				if (strpos($mod->ClassName, 'Tax') !== false) {
-					$total += $mod->Amount();
-				}
-			}
+            foreach ($this->owner->Modifiers() as $mod) {
+                if (strpos($mod->ClassName, 'Shipping') !== false) {
+                    $total += $mod->Amount();
+                }
+            }
 
-			$this->owner->extend('updateGATaxTotal', $total);
-		}
+            $this->owner->extend('updateGAShippingTotal', $total);
+        }
 
-		return $total;
-	}
+        return $total;
+    }
+
+
+    /**
+     * This is a very rudimentary method but it should allow
+     * for a variety of site configurations. If it's incorrect,
+     * it's easy enough to override by decorating the Order class.
+     * @return float
+     */
+    public function GATaxTotal()
+    {
+        $total = false;
+        $this->owner->extend('overrideGATaxTotal', $total);
+
+        if ($total === false) {
+            $total = 0;
+
+            foreach ($this->owner->Modifiers() as $mod) {
+                if (strpos($mod->ClassName, 'Tax') !== false) {
+                    $total += $mod->Amount();
+                }
+            }
+
+            $this->owner->extend('updateGATaxTotal', $total);
+        }
+
+        return $total;
+    }
 }
-
