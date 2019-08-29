@@ -6,7 +6,7 @@
  * @date 09.10.2014
  * @package shop_googleanalytics
  */
-class ShopGoogleAnalytics extends Object
+class ShopGoogleAnalytics extends SS_Object
 {
     /** @var string - UA-XXXXX-X */
     private static $web_property_id = '';
