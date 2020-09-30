@@ -1,5 +1,5 @@
 {
-	"name" : "burnbright/silverstripe-shop-googleanalytics",
+	"name" : "burnbright/silvershop-googleanalytics",
 	"description" : "Integrate SilverStripe shop sales with google analytics.",
 	"license" : "BSD-2-Clause",
 	"type" : "silverstripe-module",
@@ -17,7 +17,10 @@
 		"silverstripe/framework": "~3.1",
 		"silvershop/core": "~1.0 || ~2.0"
 	},
+	"replace": {
+		"burnbright/silverstripe-shop-googleanalytics": "*"
+	},
 	"extra" : {
-		"installer-name": "shop_googleanalytics"
+		"installer-name": "silvershop-googleanalytics"
     }
 }
